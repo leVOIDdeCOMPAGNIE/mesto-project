@@ -1,7 +1,7 @@
 {
   "name": "mesto-project",
   "version": "0.0.1",
-  "description": "## Проектная работа №3 для Яндекс.Практикум",
+  "description": "## Mesto",
   "main": "index.js",
   "scripts": {
     "build": "webpack --mode production",
@@ -9,13 +9,13 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },
-  "repository": "git+https://github.com/valery-ish/mesto-project.git",
-  "author": "Kalmykova Valeriya",
+  "repository": "https://github.com/leVOIDdeCOMPAGNIE/mesto-project",
+  "author": "VOID",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/valery-ish/mesto-project/issues"
+    "url": "https://github.com/leVOIDdeCOMPAGNIE/mesto-project/issues"
   },
-  "homepage": "https://github.com/valery-ish/mesto-project#readme",
+  "homepage": "https://github.com/leVOIDdeCOMPAGNIE/mesto-project#readme",
   "devDependencies": {
     "@babel/core": "^7.16.0",
     "@babel/preset-env": "^7.16.0",

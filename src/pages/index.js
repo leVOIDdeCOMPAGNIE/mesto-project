@@ -80,7 +80,6 @@ const card = new Card({
     },
 });
 
-/*Валидация*/
 const formValidators = {}
 
 const enableValidation = (config) => {
@@ -102,7 +101,6 @@ enableValidation({
     errorClass: 'modal__item-error_active'
 });
 
-/*Попапы*/
 const popupTypeProfile = new PopupWithForm({
     selector: profilePopup,
     handleSubmit: (formData) => {
@@ -180,7 +178,6 @@ const popupTypeConfirmDelete = new PopupWithForm({
 });
 popupTypeConfirmDelete.setEventListeners();
 
-/*Открытие окна формы Редактировать профиль*/
 buttonChangeProfile.addEventListener('click', function() {
     const data = userInfo.getUserInfo();
     const inputList = profileForm.querySelectorAll('.modal__item');
@@ -190,13 +187,11 @@ buttonChangeProfile.addEventListener('click', function() {
     formValidators[profileForm.getAttribute('name')].resetValidation();
 });
 
-/*Открытие окна формы Добавить новое место*/
 buttonAddCard.addEventListener('click', function() {
     popupTypeCardAdd.openPopup();
     formValidators[addCardForm.getAttribute('name')].resetValidation();
 });
 
-/*Открытие окна формы Изменить аватар*/
 buttonProfileAvatar.addEventListener('click', function() {
     popupTypeProfileAvatar.openPopup();
     formValidators[profileAvatarForm.getAttribute('name')].resetValidation();
