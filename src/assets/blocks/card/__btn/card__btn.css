@@ -1,0 +1,27 @@
+.card__btn {
+  box-sizing: border-box;
+  padding: 19px 0 0 0;
+  border: 0;
+  background: none;
+  min-width: 22px;
+  background-size: cover;
+  transition: all 1s;
+  position: relative;
+  font-size: 13px;
+  line-height: 16px;
+  font-weight: 400;
+}
+
+.card__btn::after {
+  content: url('../../../images/like.svg');
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 22px;
+  height: 19px;
+}
+
+.card__btn:hover {
+  opacity: 0.5;
+  cursor: pointer;
+}
