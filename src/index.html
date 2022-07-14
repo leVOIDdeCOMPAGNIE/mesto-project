@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mesto</title>
+</head>
+
+<body>
+    <div class="page">
+
+        <header class="header">
+            <a class="header__logo" href="#"></a>
+        </header>
+
+        <main class="content">
+            <section class="profile page__page-section">
+                <div class="profile__avatar-container">
+                    <img class="profile__avatar" src="" alt="Аватар пользователя">
+                    <button class="profile__avatar-btn" type="button"></button>
+                </div>
+                <div class="profile__info">
+                    <div class="profile__block-title">
+                        <h1 class="profile__title"></h1>
+                        <button class="profile__btn profile__btn-change" type="button" aria-label="Изменить профиль"></button>
+                    </div>
+                    <p class="profile__description"></p>
+                </div>
+                <button class="profile__btn profile__btn-add" type="button" aria-label="Добавить профиль"></button>
+            </section>
+
+
+            <section class="cards page__page-section">
+                <template class="card_template">
+          <article class="card" id="">
+            <button class="card__delete-btn" type="button" aria-label="Удалить"></button>
+            <img class="card__image" src="" alt="">
+            <div class="card__block-title">
+              <h2 class="card__title"></h2>
+              <button class="card__btn" type="button" aria-label="Нравится"></button>
+            </div>
+          </article>
+        </template>
+            </section>
+
+            <footer class="footer page__page-section">
+                <p class="footer__copyryght">© 2020 Mesto Russia</p>
+            </footer>
+        </main>
+
+        <article class="popup popup_type_profile">
+            <div class="popup__container">
+                <button class="popup__close-btn" type="button" aria-label="Закрыть"></button>
+                <form class="modal" id="profile-change" name="profile-change" novalidate>
+                    <h2 class="modal__title">Редактировать профиль</h2>
+                    <label for="profile-title" class="modal__field">
+              <input type="text" class="modal__item" id="profile-title" name="profile-title" required minlength="2" maxlength="40">
+              <span class="modal__item-error profile-title-error" ></span>
+            </label>
+                    <label for="profile-description" class="modal__field">
+              <input type="text" class="modal__item" id="profile-description" name="profile-description" required minlength="2" maxlength="200">
+              <span class="modal__item-error profile-description-error" ></span>
+            </label>
+                    <button type="submit" class="modal__save-btn">Сохранить</button>
+                </form>
+            </div>
+        </article>
+
+        <article class="popup popup_type_card-add">
+            <div class="popup__container">
+                <button class="popup__close-btn" type="button" aria-label="Закрыть"></button>
+                <form class="modal" id="card-add" name="card-add" novalidate>
+                    <h2 class="modal__title">Новое место</h2>
+                    <label for="card-title" class="modal__field">
+              <input type="text" class="modal__item" id="card-title" name="card-title" placeholder="Название" minlength="2" maxlength="30"  required>
+              <span class="modal__item-error card-title-error" ></span>
+            </label>
+                    <label for="card-link" class="modal__field">
+              <input type="url" class="modal__item" id="card-link" name="card-link" placeholder="Ссылка на картинку" required>
+              <span class="modal__item-error card-link-error" ></span>
+            </label>
+                    <button type="submit" class="modal__save-btn">Создать</button>
+                </form>
+            </div>
+        </article>
+
+        <article class="popup popup_type_profile-avatar">
+            <div class="popup__container">
+                <button class="popup__close-btn" type="button" aria-label="Закрыть"></button>
+                <form class="modal" id="profile-avatar" name="profile-avatar" novalidate>
+                    <h2 class="modal__title">Обновить аватар</h2>
+                    <label for="profile-avatar-link" class="modal__field">
+              <input type="url" class="modal__item" id="profile-avatar-link" name="profile-avatar-link" placeholder="Ссылка на аватар" required>
+              <span class="modal__item-error profile-avatar-link-error" ></span>
+            </label>
+                    <button type="submit" class="modal__save-btn">Сохранить</button>
+                </form>
+            </div>
+        </article>
+
+        <article class="popup popup_type_confirm-delete">
+            <div class="popup__container">
+                <button class="popup__close-btn" type="button" aria-label="Закрыть"></button>
+                <form class="modal" id="confirm-delete" name="confirm-delete" novalidate>
+                    <h2 class="modal__title">Вы уверены?</h2>
+                    <input type="text" style="display: none;" name="card-id" value="">
+                    <button type="submit" class="modal__save-btn">Да</button>
+                </form>
+            </div>
+        </article>
+
+        <article class="popup popup_type_picture">
+            <div class="popup__container">
+                <button class="popup__close-btn" type="button" aria-label="Закрыть"></button>
+                <figure class="modal__figure">
+                    <img class="modal__image" src="#" alt="">
+                    <figcaption class="modal__figcaption"></figcaption>
+                </figure>
+            </div>
+        </article>
+
+    </div>
+</body>
+
+</html>

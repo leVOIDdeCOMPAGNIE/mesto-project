@@ -1,0 +1,3 @@
+.card__btn_active::after {
+  content: url('../../../../images/like-active.svg');
+}
