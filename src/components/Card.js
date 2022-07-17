@@ -1,8 +1,8 @@
+import { api } from '../components/Api.js';
+
 export default class Card {
-    constructor({ selector, putLikeCardRender, deleteLikeCardRender, openImage, deleteCard }) {
+    constructor({ selector, openImage, deleteCard }) {
         this._selector = selector;
-        this._putLikeCardRender = putLikeCardRender;
-        this._deleteLikeCardRender = deleteLikeCardRender;
         this._openImage = openImage;
         this._deleteCard = deleteCard;
     }
@@ -39,19 +39,53 @@ export default class Card {
         return this._element;
     }
 
+    putLikeCardRender(likeBtn, data) {
+      api.putLikeCard(data._id)
+          .then((card) => {
+              likeBtn.textContent = card.likes.length;
+              likeBtn.classList.add('card__btn_active');
+          })
+          .catch((err) => {
+              console.log(err);
+          });
+  }
+
+  deleteLikeCardRender(likeBtn, data) {
+      api.deleteLikeCard(data._id)
+          .then((card) => {
+              likeBtn.textContent = card.likes.length;
+              likeBtn.classList.remove('card__btn_active');
+          })
+          .catch((err) => {
+              console.log(err);
+          });
+  }
+
+//   handleSubmit() {
+//     api.deleteCardApi(cardIdToDelete)
+//         .then(() => {
+//             cardTargetToDelete.remove();
+//             popupTypeConfirmDelete.closePopup();
+//         })
+//         .catch((err) => {
+//             console.log(err);
+//         })
+//         .finally(() => {
+//           popupTypeConfirmDelete.renderLoading('Да');
+//         })
+// }
+
     _checkLikeCard(data, userId) {
         this._likes = data.likes;
         return Object.values(this._likes).some(like => like._id === userId)
     }
 
-
     _likeCard(likeBtn, data) {
         if (!likeBtn.classList.contains('card__btn_active')) {
-            this._putLikeCardRender(likeBtn, data);
+            this.putLikeCardRender(likeBtn, data);
         } else {
-            this._deleteLikeCardRender(likeBtn, data);
+            this.deleteLikeCardRender(likeBtn, data);
         }
-
     }
 
     _checkDeleteCard(data, userId) {

@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/leVOIDdeCOMPAGNIE/mesto-project#readme",
   "devDependencies": {
+    "-": "^0.0.1",
     "@babel/core": "^7.16.0",
     "@babel/preset-env": "^7.16.0",
     "autoprefixer": "^10.4.0",
@@ -30,16 +31,15 @@
     "postcss-loader": "^6.2.0",
     "webpack": "^5.64.2",
     "webpack-cli": "^4.9.1",
-    "webpack-dev-server": "^4.5.0"
-  },
-  "dependencies": {
-    "-": "^0.0.1",
-    "core-js": "^3.19.1",
+    "webpack-dev-server": "^4.5.0",
     "node": "^17.1.0",
     "node-polyfill-webpack-plugin": "^1.1.4",
     "plugin": "^0.3.3",
     "polyfill": "^0.1.0",
     "util": "^0.12.4",
     "yarn": "^1.22.19"
+  },
+  "dependencies": {
+    "core-js": "^3.19.1"
   }
 }
