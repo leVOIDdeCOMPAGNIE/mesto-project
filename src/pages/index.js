@@ -7,12 +7,12 @@ import { api } from '../components/Api.js';
 import Section from '../components/Section.js';
 import UserInfo from '../components/UserInfo.js';
 import {
-    cardSection,
-    profilePopup,
-    cardPopup,
-    profileAvatarPopup,
-    imagePopup,
-    confirmDeletePopup,
+    cardSectionSelector,
+    profilePopupSection,
+    cardPopupSection,
+    profileAvatarPopupSection,
+    imagePopupSection,
+    confirmDeletePopupSection,
     profileTitle,
     profileDescription,
     profileAvatar,
@@ -36,7 +36,7 @@ const cardRender = new Section({
         const cardElement = card.generate(item, userId);
         cardRender.setItemList(cardElement);
     }
-}, cardSection);
+}, cardSectionSelector);
 
 const getInfo = Promise.all([api.getInitialCards(), api.getProfileInfo()])
 getInfo.then(([cards, profile]) => {
@@ -50,26 +50,7 @@ getInfo.then(([cards, profile]) => {
 
 const card = new Card({
     selector: '.card_template',
-    putLikeCardRender: (likeBtn, data) => {
-        api.putLikeCard(data._id)
-            .then((card) => {
-                likeBtn.textContent = card.likes.length;
-                likeBtn.classList.add('card__btn_active');
-            })
-            .catch((err) => {
-                console.log(err);
-            });
-    },
-    deleteLikeCardRender: (likeBtn, data) => {
-        api.deleteLikeCard(data._id)
-            .then((card) => {
-                likeBtn.textContent = card.likes.length;
-                likeBtn.classList.remove('card__btn_active');
-            })
-            .catch((err) => {
-                console.log(err);
-            });
-    },
+
     openImage: (title, link) => {
         popupWithImage.openPopup(title, link)
     },
@@ -102,7 +83,7 @@ enableValidation({
 });
 
 const popupTypeProfile = new PopupWithForm({
-    selector: profilePopup,
+    selector: profilePopupSection,
     handleSubmit: (formData) => {
         api.renewProfileInfo(formData['profile-title'], formData['profile-description'])
             .then((profile) => {
@@ -121,7 +102,7 @@ const popupTypeProfile = new PopupWithForm({
 popupTypeProfile.setEventListeners();
 
 const popupTypeCardAdd = new PopupWithForm({
-    selector: cardPopup,
+    selector: cardPopupSection,
     handleSubmit: (formData) => {
         api.postNewCard(formData['card-title'], formData['card-link'])
             .then((item) => {
@@ -140,7 +121,7 @@ const popupTypeCardAdd = new PopupWithForm({
 popupTypeCardAdd.setEventListeners();
 
 const popupTypeProfileAvatar = new PopupWithForm({
-    selector: profileAvatarPopup,
+    selector: profileAvatarPopupSection,
     handleSubmit: (formData) => {
         api.renewProfileAvatar(formData['profile-avatar-link'])
             .then((profile) => {
@@ -157,11 +138,12 @@ const popupTypeProfileAvatar = new PopupWithForm({
 });
 popupTypeProfileAvatar.setEventListeners();
 
-const popupWithImage = new PopupWithImage(imagePopup, '.modal__image', '.modal__figcaption');
+const popupWithImage = new PopupWithImage(imagePopupSection, '.modal__image', '.modal__figcaption');
 popupWithImage.setEventListeners();
 
 const popupTypeConfirmDelete = new PopupWithForm({
-    selector: confirmDeletePopup,
+    selector: confirmDeletePopupSection,
+
     handleSubmit: () => {
         api.deleteCardApi(cardIdToDelete)
             .then(() => {
