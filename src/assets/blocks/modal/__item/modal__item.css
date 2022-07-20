@@ -1,0 +1,22 @@
+.modal__item {
+  box-sizing: border-box;
+  display: block;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, .2);
+  padding: 11px 0 11px;
+  margin: 0 auto;
+  width: 358px;
+  transition: all 0.3s;
+}
+
+.modal__item::placeholder {
+  font-size: 14px;
+  line-height: 17px;
+  color: #000;
+}
+
+@media screen and (max-width: 767px) {
+  .modal__item {
+    width: 238px;
+  }
+}

@@ -1,0 +1,28 @@
+.profile__btn-change {
+  padding: 0;
+  box-sizing: border-box;
+  border: 1px solid #FFFFFF;
+  background: none;
+  margin-left: 18px;
+  width: 24px;
+  height: 24px;
+  background-image: url(../../../images/pen.svg);
+  background-size: 10px 10px;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: all 1s;
+}
+
+.profile__btn-change:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 767px) {
+  .profile__btn-change {
+    width: 18px;
+    height: 18px;
+    background-size: 7.5px 7.5px;
+    margin-left: 10px;
+  }
+}
